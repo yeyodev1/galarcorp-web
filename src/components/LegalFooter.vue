@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import resolucionPdf from '@/assets/legal/Resolución No. SCVS-INMV-DNAR-2025-00035872 III EOLP MOSINVEST SA-signed.pdf'
 </script>
 
 <template>
@@ -9,17 +8,15 @@ import resolucionPdf from '@/assets/legal/Resolución No. SCVS-INMV-DNAR-2025-00
         <span>Copyright © 2025 GalarCorp. Todos los derechos reservados.</span>
       </div>
       <div class="footer-right">
-        <a
+        <RouterLink
           class="legal-link"
-          :href="resolucionPdf"
-          target="_blank"
-          rel="noopener"
-          title="Resolución No. SCVS-INMV-DNAR-2025-00035872 - Aprobación Emisión de Obligaciones"
+          to="/resolutions"
+          title="Resoluciones"
         >
           <i class="fa-regular fa-file-pdf"></i>
-          Resolución No. SCVS-INMV-DNAR-2025-00035872 - Aprobación Emisión de Obligaciones
-        </a>
-        <small class="disclaimer">Documento oficial autorizado por la Superintendencia de Compañías, Valores y Seguros.</small>
+          Resoluciones
+        </RouterLink>
+        <small class="disclaimer">Documentos oficiales emitidos por entidades oficiales.</small>
       </div>
     </div>
   </footer>
