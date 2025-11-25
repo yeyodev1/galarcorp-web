@@ -12,12 +12,19 @@ const props = defineProps({
   <header class="site-header" :class="{ solid: solid }">
     <div class="inner">
       <div class="brand">
-        <img src="@/assets/logo/galarcorp-white-red.png" alt="GalarCorp" class="logo" />
+        <RouterLink to="/" class="brand-link">
+          <img src="@/assets/logo/galarcorp-white-red.png" alt="GalarCorp" class="logo" />
+        </RouterLink>
       </div>
       <nav class="actions">
-        <a href="/resolutions" class="nav-link">Resoluciones</a>
-        <a href="#contacto" class="contact-link">
-          <i class="fa-regular fa-envelope"></i>
+        <RouterLink to="/resolutions" class="nav-link">Resoluciones</RouterLink>
+        <a
+          href="https://wa.me/593968543502?text=Estoy%20buscando%20informaci%C3%B3n%20por%20favor"
+          class="contact-link"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
           Contacto
         </a>
       </nav>
@@ -63,6 +70,11 @@ const props = defineProps({
   flex: 0 1 auto;
 }
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 .logo {
   display: block;
   height: auto;
@@ -79,6 +91,8 @@ const props = defineProps({
   color: $white;
   text-decoration: none;
   font-size: 0.875rem;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
 .contact-link {
@@ -87,16 +101,27 @@ const props = defineProps({
   padding: 8px 10px;
   border-radius: 9999px;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 0.875rem;
 }
 
-.contact-link:hover {
-  background-color: rgba($white, 0.12);
-  border-color: rgba($white, 0.5);
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background-color: rgba($white, 0.7);
+  transition: width 0.2s ease;
+}
+
+.nav-link.router-link-active::after,
+.nav-link.router-link-exact-active::after {
+  width: 100%;
 }
 
 .contact-link i {
@@ -123,6 +148,23 @@ const props = defineProps({
 
   .contact-link i {
     display: inline-block;
+  }
+}
+
+@media (hover: hover) {
+  .nav-link:hover {
+    color: $white;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .contact-link:hover {
+    background-color: rgba($white, 0.12);
+    border-color: rgba($white, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba($black, 0.08);
   }
 }
 </style>
