@@ -7,3 +7,7 @@ body {
   margin: 0;
   font-family: $font-principal;
 }
+
+html {
+  scroll-behavior: smooth;
+}
