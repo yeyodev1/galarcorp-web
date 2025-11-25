@@ -1,9 +1,11 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <p class="title">
+    esta es la home view
+  </p>
 </template>
+
+<style scoped>
+.title {
+  color: red;
+}
+</style>
