@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LegalFooter from '@/components/LegalFooter.vue'
+</script>
 
 <template>
   <header class="site-header">
@@ -15,6 +17,7 @@
     </div>
   </header>
   <router-view />
+  <LegalFooter />
 </template>
 
 <style scoped lang="scss">
@@ -100,8 +103,4 @@
   }
 }
 </style>
-.actions {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
+ 
